@@ -1,0 +1,72 @@
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+    <script>
+        // Smooth scroll and header effects
+        window.onscroll = function () {
+            const header = document.getElementById('main-header');
+            if (header) {
+                (window.pageYOffset > 50) ? header.classList.add('scrolled') : header.classList.remove('scrolled');
+            }
+        };
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (!targetId || targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 70; // 70 is approx. header height
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Initialize Swiper
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.mySwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                centeredSlides: true,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: true,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: { // Using a common breakpoint for mobile/desktop
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        centeredSlides: false,
+                    }
+                }
+            });
+        }
+
+        // Initialize AOS
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 120,
+            });
+        }
+
+        // Hide the footer element
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerElement = document.querySelector('.footer');
+            if (footerElement) {
+                footerElement.style.display = 'none';
+            }
+        });
+    </script>

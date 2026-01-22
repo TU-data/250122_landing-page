@@ -66,18 +66,24 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            color: white;
-        }
-
-        header.scrolled .nav-icons {
-            color: #000;
         }
 
         .icon-svg {
             width: 20px;
             height: 20px;
             display: block;
-            fill: currentColor;
+        }
+        
+        .icon-black {
+            display: none;
+        }
+        
+        header.scrolled .icon-white {
+            display: none;
+        }
+
+        header.scrolled .icon-black {
+            display: block;
         }
 
         .hidden-br {

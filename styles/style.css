@@ -3,7 +3,7 @@
             font-weight: 100 900;
             font-style: normal;
             font-display: swap;
-            src: url('../woff2/PretendardVariable.woff2') format('woff2');
+            src: url('/fonts/woff2/PretendardVariable.woff2') format('woff2');
         }
 
         * {
@@ -66,20 +66,18 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            color: white;
+        }
+
+        header.scrolled .nav-icons {
+            color: #000;
         }
 
         .icon-svg {
             width: 20px;
             height: 20px;
             display: block;
-        }
-
-        .icon-black {
-            display: none;
-        }
-        
-        header.scrolled .icon-black {
-            display: block;
+            fill: currentColor;
         }
 
         .hidden-br {

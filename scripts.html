@@ -4,11 +4,23 @@
 
 
     <script>
-        // Smooth scroll and header effects
+        // Set initial state for nav icons and handle scroll effects
+        const navIconsContainer = document.querySelector('.nav-icons');
+        if (navIconsContainer) {
+            // Hide on initial load
+            navIconsContainer.style.display = 'none';
+        }
+
         window.onscroll = function () {
             const header = document.getElementById('main-header');
-            if (header) {
-                (window.pageYOffset > 50) ? header.classList.add('scrolled') : header.classList.remove('scrolled');
+            if (header && navIconsContainer) {
+                if (window.pageYOffset > 50) {
+                    header.classList.add('scrolled');
+                    navIconsContainer.style.display = 'flex';
+                } else {
+                    header.classList.remove('scrolled');
+                    navIconsContainer.style.display = 'none';
+                }
             }
         };
 

@@ -18,6 +18,10 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        .footer {
+            display: none;
+        }
+
         :root {
             --bg-black: #000;
             --side-padding: 8%;
